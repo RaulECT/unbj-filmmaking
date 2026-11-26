@@ -26,18 +26,15 @@ Necesitas la **app de escritorio de Claude** (Mac o Windows) y entrar a la pesta
 
 **Actualizar:** `/plugin marketplace update unbj-filmmaking` y después `/plugin update unbj-filmmaking@unbj-filmmaking`.
 
-## Requisitos previos (no los instala el plugin)
+## Requisitos previos
 
 | Requisito | Notas |
 | --- | --- |
 | App de escritorio de Claude con la pestaña **Code** | Y una cuenta con acceso a Claude Code |
-| Internet | Se descargan Node.js, ffmpeg, el motor de video (~300 MB), el navegador de render y las fuentes |
-| Contraseña de administrador de la computadora | Homebrew (Mac) y winget (Windows) la piden |
-| Windows: **winget** (App Installer, de Microsoft Store) | Viene en Windows 10/11 recientes |
-| Mac: herramientas de línea de comandos de Xcode | Homebrew abre una ventana para instalarlas: hay que aceptar |
-| Espacio libre: ~1 GB (~2,5 GB con persona a cámara) | Con el disco casi lleno el render puede fallar |
+| Internet | Para descargar Node.js, el motor de video, su navegador de render, las fuentes y, con cámara, Python y el modelo de transcripción |
+| Espacio libre: ~1 GB (~3 GB con persona a cámara) | Con el disco casi lleno el render puede fallar |
 
-El plugin sí instala: Homebrew (Mac), **Node.js**, **ffmpeg**, el motor de video y, si usarás persona a cámara, Python con la transcripción.
+**No hace falta** Homebrew, winget, contraseña de administrador, Xcode ni ffmpeg instalado. El plugin descarga todo a `~/.unbj-filmmaking` (Node.js portátil oficial verificado con SHA-256, el motor Remotion con su propio ffmpeg y, si se usa cámara, uv con Python 3.12). Para desinstalar, se borra esa carpeta.
 
 ## Uso
 

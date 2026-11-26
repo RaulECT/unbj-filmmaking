@@ -26,7 +26,7 @@ if (!fs.existsSync(path.join(MOTOR, "node_modules", "remotion"))) {
   console.log("→ Instalando el motor de video (solo la primera vez, 2–5 minutos)…");
   fs.mkdirSync(MOTOR, { recursive: true });
   fs.copyFileSync(path.join(PLANTILLA, "package.json"), path.join(MOTOR, "package.json"));
-  run(WIN ? "npm.cmd" : "npm", ["install", "--no-audit", "--no-fund", "--loglevel=error"], { cwd: MOTOR });
+  run(WIN ? "npm.cmd" : "npm", ["install", "--no-audit", "--no-fund", "--no-update-notifier", "--loglevel=error"], { cwd: MOTOR });
 }
 
 if (soloMotor) {
@@ -41,7 +41,7 @@ fs.rmSync(path.join(dir, "src"), { recursive: true, force: true });
 fs.cpSync(path.join(PLANTILLA, "src"), path.join(dir, "src"), { recursive: true });
 for (const f of ["package.json", "tsconfig.json"]) fs.copyFileSync(path.join(PLANTILLA, f), path.join(dir, f));
 fs.cpSync(path.join(PLANTILLA, "public", "sfx"), path.join(dir, "public", "sfx"), { recursive: true });
-if (!fs.existsSync(path.join(dir, "camara.json"))) fs.writeFileSync(path.join(dir, "camara.json"), "[]\n");
+if (!fs.existsSync(path.join(dir, "camara.json"))) fs.copyFileSync(path.join(PLANTILLA, "camara.json"), path.join(dir, "camara.json"));
 
 // 3. node_modules → motor compartido
 const nm = path.join(dir, "node_modules");

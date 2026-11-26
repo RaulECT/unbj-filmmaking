@@ -104,7 +104,11 @@ esc.forEach((e, i) => {
       break;
     }
     case "persona":
-      if (!fs.existsSync(path.join(pub, "camara.mp4"))) errores.push(`${d}: falta public/camara.mp4 (se prepara con camara.py).`);
+      {
+        const cj = fs.existsSync(path.join(dir, "camara.json")) ? leer(path.join(dir, "camara.json")) : null;
+        const arch = Array.isArray(cj) ? "camara.mp4" : cj?.archivo ?? "camara.mp4";
+        if (!fs.existsSync(path.join(pub, arch))) errores.push(`${d}: falta la grabación public/${arch} (se prepara con camara.py).`);
+      }
       if (!(e.hasta > e.desde)) errores.push(`${d}: "hasta" debe ser mayor que "desde".`);
       break;
   }

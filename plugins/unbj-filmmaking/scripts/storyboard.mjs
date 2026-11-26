@@ -2,7 +2,7 @@
 // Uso: node storyboard.mjs <carpeta del video> [formato=vertical]
 import fs from "node:fs";
 import path from "node:path";
-import { proyecto, leer, tiempos, npx, run, FORMATOS, fallo } from "./comun.mjs";
+import { proyecto, leer, tiempos, npx, medidas, FORMATOS, fallo } from "./comun.mjs";
 import { storyboardHtml } from "./storyboard-html.mjs";
 
 const dir = proyecto(process.argv[2]);
@@ -25,8 +25,15 @@ v.escenas.forEach((e, i) => {
 });
 const cols = Math.min(archivos.length, formato === "horizontal" ? 3 : 6);
 const filas = Math.ceil(archivos.length / cols);
-run("ffmpeg", ["-v", "error", "-y", ...archivos.flatMap((a) => ["-i", a]), "-filter_complex",
-  `${archivos.map((_, i) => `[${i}]`).join("")}xstack=inputs=${archivos.length}:layout=${archivos.map((_, i) => `${i % cols === 0 ? "0" : Array.from({ length: i % cols }, () => "w0").join("+")}_${Math.floor(i / cols) === 0 ? "0" : Array.from({ length: Math.floor(i / cols) }, () => "h0").join("+")}`).join("|")}:fill=white`,
-  path.join(out, "hoja.jpg")], { silencio: true });
+// la hoja se arma con la composición "Hoja" de la plantilla (copia temporal de los fotogramas en public/)
+const tmp = path.join(dir, "public", ".storyboard");
+fs.rmSync(tmp, { recursive: true, force: true });
+fs.mkdirSync(tmp);
+archivos.forEach((a) => fs.copyFileSync(a, path.join(tmp, path.basename(a))));
+const m = medidas(archivos[0]);
+const props = path.join(tmp, "props.json");
+fs.writeFileSync(props, JSON.stringify({ imgs: archivos.map((a) => `.storyboard/${path.basename(a)}`), w: m.w, h: m.h, cols }));
+npx(dir, ["still", "src/index.ts", "Hoja", path.join(out, "hoja.jpg"), `--props=${props}`, "--log=error"], { silencio: true });
+fs.rmSync(tmp, { recursive: true, force: true });
 const h = storyboardHtml(dir, formato);
 console.log(`✅ Storyboard: ${out} (${archivos.length} escenas, ${filas} fila(s) en hoja.jpg)\n✅ Página: ${h.out} (borrador ${h.borrador})`);

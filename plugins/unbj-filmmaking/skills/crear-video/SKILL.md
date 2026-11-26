@@ -13,10 +13,14 @@ La persona **no programa**. Tú instalas, escribes los archivos, corres los coma
 **Cómo se hace un video:** todo el estilo ya está programado en `plantilla/`. Un video es solo dos archivos de datos en su carpeta (`~/Videos UNBJ Filmmaking/<nombre>/`): `marca.json` (colores, fuentes, logo) y `video.json` (la lista de escenas con sus textos e imágenes). **No edites `src/`.** Si algo no se puede con las escenas que hay, dilo y ofrece la escena más cercana.
 
 ## 0 — Preparación (una vez por computadora)
-Comprueba `node -v` y `ffmpeg -version`. Si falta algo, explícale en una frase qué vas a instalar y por qué, pide permiso y corre:
-- Mac: `bash "$R/scripts/instalar.sh"` (agrega `--camara` si el video lleva persona a cámara).
-- Windows: `powershell -ExecutionPolicy Bypass -File "$R\scripts\instalar.ps1"` (agrega `-Camara`).
-La primera vez tarda unos minutos (motor de video en `~/.unbj-filmmaking/`). Si algo falla, ve a `references/solucion-problemas.md`.
+Todo se instala **en la carpeta del usuario `~/.unbj-filmmaking`**, sin Homebrew, sin winget y sin contraseña de administrador: Node.js portátil (oficial, verificado con SHA-256) y el motor de video (Remotion, que trae su propio ffmpeg). Con persona a cámara, además uv → Python 3.12 con la transcripción.
+- Si no existe `~/.unbj-filmmaking/node`, explícale en una frase qué se va a descargar (~350 MB; ~650 MB con cámara) y corre:
+  - Mac: `bash "$R/scripts/instalar.sh"` (agrega `--camara` si el video lleva persona a cámara).
+  - Windows: `powershell -ExecutionPolicy Bypass -File "$R\scripts\instalar.ps1"` (agrega `-Camara`).
+- **Corre siempre los scripts con ese Node**, aunque haya otro instalado. Abajo, `$N` es:
+  - Mac: `"$HOME/.unbj-filmmaking/node/bin/node"`
+  - Windows: `"%USERPROFILE%\.unbj-filmmaking\node\node.exe"`
+- Si algo falla, ve a `references/solucion-problemas.md`.
 
 ## 1 — Entrevista (por rondas, 3–4 preguntas por ronda; no avances con dudas abiertas)
 1. **Qué y para quién:** qué se anuncia, objetivo (inscribirse, asistir, comprar, conocer), público, CTA y sitio o handle.
@@ -29,17 +33,17 @@ La primera vez tarda unos minutos (motor de video en `~/.unbj-filmmaking/`). Si 
 
 ## 2 — Guion (lo aprueba antes de renderizar)
 1. Elige escenas y orden con `references/escenas.md` (qué hace cada una, qué pide y estructuras recomendadas). Respeta el ritmo: gancho al inicio, un golpe a mitad, cierre al final, 20–40 s.
-2. Crea la carpeta: `node "$R/scripts/preparar.mjs" "<nombre del video>"`. Copia ahí las imágenes que te pasó (a `public/`, en subcarpetas `pantallas/`, `portadas/`) y escribe `marca.json` y `video.json` (formato en `references/escenas.md` y `references/marca.md`; ejemplo completo en `$R/ejemplos/campus-unbj/`). Vuelve a correr `preparar.mjs` con `--carpeta <ruta>` para cargar las fuentes.
-3. `node "$R/scripts/validar.mjs" "<carpeta>"` — corrige todo ❌ y explica los ⚠️ a la persona.
-4. `node "$R/scripts/guion.mjs" "<carpeta>"` → `guion.md`. Muéstrale la tabla de escenas y el copy para publicar (redáctalo tú en `video.json → publicacion`: texto, hashtags y segundo de la portada; `references/guion.md`).
-5. **Storyboard:** `node "$R/scripts/storyboard.mjs" "<carpeta>" [formato]`. Genera los fotogramas, `storyboard/hoja.jpg` y **`storyboard/storyboard.html`**: una página con resumen, índice por secciones y, por escena, el fotograma con Pantalla / Animación / Sonido y el texto en pantalla. Publícala como **artifact** (herramienta Artifact, `icon: "film"`) y da el link a la persona: ahí la ve completa, puede comentar escenas y compartirla. En cada borrador nuevo vuelve a publicar el **mismo archivo** (mismo link) y anota en `video.json → cambios` (lista de frases) qué cambió; la página lo muestra arriba. Si no puedes publicar artifacts, ábrela en el navegador (`open` / `start ""`).
+2. Crea la carpeta: `$N "$R/scripts/preparar.mjs" "<nombre del video>"`. Copia ahí las imágenes que te pasó (a `public/`, en subcarpetas `pantallas/`, `portadas/`) y escribe `marca.json` y `video.json` (formato en `references/escenas.md` y `references/marca.md`; ejemplo completo en `$R/ejemplos/campus-unbj/`). Vuelve a correr `preparar.mjs` con `--carpeta <ruta>` para cargar las fuentes.
+3. `$N "$R/scripts/validar.mjs" "<carpeta>"` — corrige todo ❌ y explica los ⚠️ a la persona.
+4. `$N "$R/scripts/guion.mjs" "<carpeta>"` → `guion.md`. Muéstrale la tabla de escenas y el copy para publicar (redáctalo tú en `video.json → publicacion`: texto, hashtags y segundo de la portada; `references/guion.md`).
+5. **Storyboard:** `$N "$R/scripts/storyboard.mjs" "<carpeta>" [formato]`. Genera los fotogramas, `storyboard/hoja.jpg` y **`storyboard/storyboard.html`**: una página con resumen, índice por secciones y, por escena, el fotograma con Pantalla / Animación / Sonido y el texto en pantalla. Publícala como **artifact** (herramienta Artifact, `icon: "film"`) y da el link a la persona: ahí la ve completa, puede comentar escenas y compartirla. En cada borrador nuevo vuelve a publicar el **mismo archivo** (mismo link) y anota en `video.json → cambios` (lista de frases) qué cambió; la página lo muestra arriba. Si no puedes publicar artifacts, ábrela en el navegador (`open` / `start ""`).
 6. Pide aprobación o cambios. Los cambios son ediciones de `video.json` / `marca.json`; repite 3–5.
 
 ## 3 — Vista previa
-`node "$R/scripts/render.mjs" "<carpeta>" --vista-previa` (≈1 min, media resolución, primer formato). Ábrela para la persona (`open` en Mac, `start ""` en Windows) y pide comentarios. Revisa tú también 4–5 fotogramas (ffmpeg → imagen → Read): textos cortados, contraste, zonas seguras.
+`$N "$R/scripts/render.mjs" "<carpeta>" --vista-previa` (≈1 min, media resolución, primer formato). Ábrela para la persona (`open` en Mac, `start ""` en Windows) y pide comentarios. Revisa tú también 4–5 fotogramas (ffmpeg → imagen → Read): textos cortados, contraste, zonas seguras.
 
 ## 4 — Render final
-`node "$R/scripts/render.mjs" "<carpeta>"` renderiza todos los formatos de `video.json` en `final/`, con música mezclada y volumen a -14 LUFS. Abre la carpeta y entrega:
+`$N "$R/scripts/render.mjs" "<carpeta>"` renderiza todos los formatos de `video.json` en `final/`, con música mezclada y volumen a -14 LUFS. Abre la carpeta y entrega:
 - rutas de los MP4,
 - el copy para publicar (con el crédito de música si aplica),
 - qué revisaste y qué no.
@@ -49,7 +53,7 @@ No publiques nada en redes ni subas archivos a ningún servicio sin que la perso
 - Una idea por escena; títulos ≤ 30 letras con **una** palabra en `*cursiva*`.
 - No inventes cifras, testimonios ni logos de terceros.
 - Texto e imágenes reales de la persona; si falta una pantalla, usa otra escena en vez de inventar una.
-- El ejemplo de UNBJ (`$R/ejemplos/campus-unbj/`) es la referencia de nivel: `node "$R/scripts/preparar.mjs" "Ejemplo" --ejemplo campus-unbj` lo reproduce idéntico al reel original.
+- El ejemplo de UNBJ (`$R/ejemplos/campus-unbj/`) es la referencia de nivel: `$N "$R/scripts/preparar.mjs" "Ejemplo" --ejemplo campus-unbj` lo reproduce idéntico al reel original.
 - Remotion es gratis para personas y organizaciones de hasta 3 personas; si es una empresa más grande, avísale que necesita licencia (remotion.dev/license).
 
 ## Referencias

@@ -12,6 +12,10 @@ export const MOTOR = path.join(CASA, "motor"); // node_modules compartido por to
 export const VIDEOS = path.join(os.homedir(), "Videos UNBJ Filmmaking");
 export const WIN = process.platform === "win32";
 
+// Node portátil (instalar.sh / instalar.ps1): sus binarios van primero en el PATH de todo lo que se ejecute.
+export const NODE_DIR = path.join(CASA, "node");
+process.env.PATH = [WIN ? NODE_DIR : path.join(NODE_DIR, "bin"), process.env.PATH].join(path.delimiter);
+
 export const FORMATOS = { vertical: "Vertical", retrato: "Retrato", cuadrado: "Cuadrado", horizontal: "Horizontal" };
 
 export function fallo(msg) {
@@ -35,6 +39,10 @@ export const leer = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 export const escribir = (p, o) => fs.writeFileSync(p, JSON.stringify(o, null, 2) + "\n");
 
 export const npx = (dir, args, opts = {}) => run(WIN ? "npx.cmd" : "npx", ["--no-install", "remotion", ...args], { cwd: dir, ...opts });
+/** ffmpeg y ffprobe que trae Remotion (no hace falta instalar ffmpeg en el sistema). Versión reducida: ver plugin/README. */
+export const ffmpeg = (args, opts = {}) => npx(MOTOR, ["ffmpeg", "-hide_banner", "-v", "error", ...args], opts);
+export const duracion = (file) =>
+  Number(npx(MOTOR, ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file], { silencio: true }).stdout.trim());
 
 /** Medidas de un PNG o JPG leyendo su cabecera. */
 export function medidas(file) {

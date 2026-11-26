@@ -3,7 +3,12 @@
 // e.desde · e.hasta (segundos dentro de camara.mp4) · e.resaltar ["palabra", …] · e.subtitulos (true) · e.etiqueta? (chip arriba)
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, Sequence, staticFile, useVideoConfig } from "remotion";
-import PALABRAS from "../../camara.json";
+import CAMARA from "../../camara.json";
+
+// camara.json: { archivo, palabras: [{w,s,e}] (tiempo ya sin pausas), tramos: [[inicio, fin], …] (tiempo de la grabación), cara: {x, y} }
+// (formato viejo: un arreglo de palabras y public/camara.mp4 ya cortado)
+const CAM: any = Array.isArray(CAMARA) ? { archivo: "camara.mp4", palabras: CAMARA, tramos: null, cara: { x: 0.5, y: 0.42 } } : CAMARA;
+const PALABRAS = CAM.palabras ?? [];
 import { C, TITLE, BODY } from "../motor/marca";
 import { useT, useTl, ramp, pop, easeIO } from "../motor/tiempo";
 import { Centro } from "../motor/formato";
@@ -47,6 +52,20 @@ const Subtitulos: React.FC<{ o: number; e: any }> = ({ o, e }) => {
   );
 };
 
+/** tramos de la grabación que caen en [desde, hasta] (tiempo sin pausas) */
+function piezas(desde: number, hasta: number) {
+  if (!CAM.tramos) return [{ desde, hasta, original: desde }];
+  const out: { desde: number; hasta: number; original: number }[] = [];
+  let c = 0;
+  for (const [a, b] of CAM.tramos as [number, number][]) {
+    const ini = Math.max(desde, c);
+    const fin = Math.min(hasta, c + (b - a));
+    if (fin > ini) out.push({ desde: ini, hasta: fin, original: a + (ini - c) });
+    c += b - a;
+  }
+  return out;
+}
+
 const PersonaArriba: React.FC<{ o: number; fin: number; e: any }> = ({ o, fin, e }) => {
   const t = useT();
   const { fps } = useVideoConfig();
@@ -55,9 +74,12 @@ const PersonaArriba: React.FC<{ o: number; fin: number; e: any }> = ({ o, fin, e
   const z = ramp(t, fin - 0.05, 0.3, easeIO);
   return (
     <AbsoluteFill style={{ clipPath: `inset(${(1 - a) * 100}% 0 ${z * 100}% 0 round ${(1 - a + z) * 60}px)`, background: C.text }}>
-      <Sequence from={Math.round(o * fps)} durationInFrames={Math.round((fin - o) * fps)}>
-        <OffthreadVideo src={staticFile("camara.mp4")} startFrom={Math.round(e.desde * fps)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-      </Sequence>
+      {piezas(e.desde, e.hasta).map((p, j) => (
+        <Sequence key={j} from={Math.round((o + p.desde - e.desde) * fps)} durationInFrames={Math.max(1, Math.round((p.hasta - p.desde) * fps))}>
+          <OffthreadVideo src={staticFile(CAM.archivo)} startFrom={Math.round(p.original * fps)}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: `${(CAM.cara?.x ?? 0.5) * 100}% ${(CAM.cara?.y ?? 0.42) * 100}%` }} />
+        </Sequence>
+      ))}
       {e.etiqueta && (
         <Centro>
           <div style={{ position: "absolute", top: 250, left: 0, right: 0, display: "flex", justifyContent: "center", opacity: ramp(t, o + 0.2, 0.4) }}>
