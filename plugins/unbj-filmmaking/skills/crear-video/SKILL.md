@@ -32,7 +32,7 @@ La primera vez tarda unos minutos (motor de video en `~/.unbj-filmmaking/`). Si 
 2. Crea la carpeta: `node "$R/scripts/preparar.mjs" "<nombre del video>"`. Copia ahí las imágenes que te pasó (a `public/`, en subcarpetas `pantallas/`, `portadas/`) y escribe `marca.json` y `video.json` (formato en `references/escenas.md` y `references/marca.md`; ejemplo completo en `$R/ejemplos/campus-unbj/`). Vuelve a correr `preparar.mjs` con `--carpeta <ruta>` para cargar las fuentes.
 3. `node "$R/scripts/validar.mjs" "<carpeta>"` — corrige todo ❌ y explica los ⚠️ a la persona.
 4. `node "$R/scripts/guion.mjs" "<carpeta>"` → `guion.md`. Muéstrale la tabla de escenas y el copy para publicar (redáctalo tú en `video.json → publicacion`: texto, hashtags y segundo de la portada; `references/guion.md`).
-5. **Storyboard:** `node "$R/scripts/storyboard.mjs" "<carpeta>" [formato]` y muéstrale `storyboard/hoja.jpg` (léela con Read para que la vea en el chat).
+5. **Storyboard:** `node "$R/scripts/storyboard.mjs" "<carpeta>" [formato]`. Genera los fotogramas, `storyboard/hoja.jpg` y **`storyboard/storyboard.html`**: una página con resumen, índice por secciones y, por escena, el fotograma con Pantalla / Animación / Sonido y el texto en pantalla. Publícala como **artifact** (herramienta Artifact, `icon: "film"`) y da el link a la persona: ahí la ve completa, puede comentar escenas y compartirla. En cada borrador nuevo vuelve a publicar el **mismo archivo** (mismo link) y anota en `video.json → cambios` (lista de frases) qué cambió; la página lo muestra arriba. Si no puedes publicar artifacts, ábrela en el navegador (`open` / `start ""`).
 6. Pide aprobación o cambios. Los cambios son ediciones de `video.json` / `marca.json`; repite 3–5.
 
 ## 3 — Vista previa
