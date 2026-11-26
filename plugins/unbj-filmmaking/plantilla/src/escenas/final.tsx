@@ -365,11 +365,37 @@ const CierreEditorial: React.FC<{ o: number; e: any }> = ({ o: f, e }) => {
   );
 };
 
+// Solo marca: círculo de acento, el logo blanco salta y el nombre con una palabra en cursiva. Sin llamado ni sitio.
+// e.titulo ("UNBJ *Filmmaking*"; por defecto el nombre de la marca)
+const CierreMarca: React.FC<{ o: number; e: any }> = ({ o: f, e }) => {
+  const t = useT();
+  const c = useCentro();
+  if (t < f - 0.4) return null;
+  const r = 2400 * ramp(t, f - 0.35, 0.6, easeIO) * Math.max(1, c.width / 1080);
+  const cc = c.punto(540, 960);
+  const lp = pop(t, f + 0.3, 0.6);
+  const lineP = ramp(t, f + 1.2, 0.6, easeIO);
+  return (
+    <AbsoluteFill style={{ clipPath: `circle(${r}px at ${cc.x}px ${cc.y}px)`, background: C.lime }}>
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(255,255,255,.14) 1.5px, transparent 1.5px)", backgroundSize: "36px 36px" }} />
+      <Centro>
+        <AbsoluteFill style={{ alignItems: "center" }}>
+          <Img src={img(MARCA.logoBlanco)} style={{ position: "absolute", top: 560, height: 260, opacity: Math.min(1, lp * 1.5), transform: `scale(${0.6 + 0.4 * lp})` }} />
+          <div style={{ position: "absolute", top: 900, left: 40, right: 40, textAlign: "center" }}>
+            <Headline t={t} at={f + 0.6} color="#fff" em={C.text} size={130} texto={e.titulo ?? MARCA.nombre} />
+          </div>
+          <div style={{ position: "absolute", top: 1110, left: 540 - 160, width: 320, height: 6, borderRadius: 3, background: "#fff", opacity: 0.85, transform: `scaleX(${lineP})` }} />
+        </AbsoluteFill>
+      </Centro>
+    </AbsoluteFill>
+  );
+};
+
 export const cierre: DefEscena = {
   dur: () => 3.2,
   sfxSinRedondeo: true,
   Arriba: ({ o, e }) =>
-    e.variante === "maqueta" ? <CierreMaqueta o={o} e={e} /> : e.variante === "editorial" ? <CierreEditorial o={o} e={e} /> : <CierreNavegador o={o} e={e} />,
+    e.variante === "marca" ? <CierreMarca o={o} e={e} /> : e.variante === "maqueta" ? <CierreMaqueta o={o} e={e} /> : e.variante === "editorial" ? <CierreEditorial o={o} e={e} /> : <CierreNavegador o={o} e={e} />,
   sfx: () => [
     { at: -0.35, f: "whoosh" },
     { at: 0.15, f: "whoosh", v: 0.6 },

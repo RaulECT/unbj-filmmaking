@@ -9,7 +9,9 @@ export type WK = { at: number; d?: number; x: number; y: number; s: number; rx: 
 export type Tr = "push" | "sheet" | "fade";
 export type Shot = { from: number; src: string; h: number; keys: { at: number; d?: number; cy: number }[]; tr?: Tr; sheetTop?: number };
 export type Tap = { at: number; x: number; y: number };
-export type Cap = { from: number; to: number; eyebrow: string; title: string; align?: "left" | "center" };
+export type Cap = { from: number; to: number; eyebrow: string; title: string; texto?: string; align?: "left" | "center" };
+/** captura de computadora (escena "captura"): tiempos absolutos una vez armada la línea */
+export type VShot = { from: number; to: number; e: any };
 export type Badge = { from: number; to: number; text: string; top: number };
 export type Pantalla = { archivo: string; alto: number };
 
@@ -23,7 +25,9 @@ export type DefEscena = {
   finNumero?: (dur: number) => number;
   telefono?: (e: any) => { keys?: PK[]; shots?: Shot[]; taps?: Tap[] };
   mundo?: (e: any, ctx: { telefono: (t: number) => PK | null }) => WK[];
-  titulos?: (e: any) => { from: number; to: number; title: string; eyebrow?: string; sinNumero?: boolean; align?: "left" | "center" }[];
+  titulos?: (e: any) => { from: number; to: number; title: string; texto?: string; eyebrow?: string; sinNumero?: boolean; align?: "left" | "center" }[];
+  /** la escena se muestra en la ventana de capturas (tramos seguidos comparten ventana) */
+  ventana?: boolean;
   insignias?: (e: any) => Badge[];
   sfx?: (e: any) => Sfx[];
   /** sumar el inicio sin redondear (el cierre del original calcula sus efectos como DURATION ± x) */
@@ -50,12 +54,14 @@ export type Linea = {
   caps: Cap[];
   badges: Badge[];
   starts: number[]; // inicios de escenas numeradas (el fondo se reacomoda)
+  vshots: VShot[];
+  vtramos: { desde: number; hasta: number }[];
 };
 
 export const FRONTAL = { x: 0, y: 0, s: 1, rx: 0, rz: 0 };
 
 export function armar(escenas: any[], defs: Record<string, DefEscena>): Linea {
-  const L: Linea = { items: [], total: 0, phone: [], phoneDesde: -1, phoneHasta: -1, shots: [], taps: [], world: [{ at: 0, ...FRONTAL }], sfx: [], nums: [], caps: [], badges: [], starts: [] };
+  const L: Linea = { items: [], total: 0, phone: [], phoneDesde: -1, phoneHasta: -1, shots: [], taps: [], world: [{ at: 0, ...FRONTAL }], sfx: [], nums: [], caps: [], badges: [], starts: [], vshots: [], vtramos: [] };
   let o = 0;
   let num = 0;
   escenas.forEach((e, i) => {
@@ -99,9 +105,15 @@ export function armar(escenas: any[], defs: Record<string, DefEscena>): Linea {
       }
       L.taps.push(...(tel.taps ?? []).map((k) => ({ ...k, at: r6(k.at + o) })));
     }
+    if (def.ventana) {
+      L.vshots.push({ from: o, to: r6(o + dur), e });
+      const last = L.vtramos[L.vtramos.length - 1];
+      if (last && last.hasta === o) last.hasta = r6(o + dur);
+      else L.vtramos.push({ desde: o, hasta: r6(o + dur) });
+    }
     for (const t of def.titulos?.(e) ?? []) {
       const eyebrow = t.eyebrow ?? e.etiqueta ?? "";
-      L.caps.push({ from: r6(t.from + o), to: r6(t.to + o), align: t.align, title: t.title, eyebrow: n && !t.sinNumero ? `${n} · ${eyebrow}` : eyebrow });
+      L.caps.push({ from: r6(t.from + o), to: r6(t.to + o), align: t.align, title: t.title, texto: t.texto, eyebrow: n && !t.sinNumero ? `${n} · ${eyebrow}` : eyebrow });
     }
     L.badges.push(...(def.insignias?.(e) ?? []).map((b) => ({ ...b, from: r6(b.from + o), to: r6(b.to + o) })));
     L.sfx.push(...(def.sfx?.(e) ?? []).map((s) => ({ ...s, at: def.sfxSinRedondeo ? o + s.at : r6(s.at + o) })));

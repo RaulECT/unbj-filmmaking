@@ -23,8 +23,9 @@ La primera vez tarda unos minutos (motor de video en `~/.unbj-filmmaking/`). Si 
 2. **Marca:** nombre, logo (que lo arrastre al chat; ideal PNG sin fondo, más uno blanco para fondos oscuros), 2–4 colores (o una imagen de su marca para sacarlos) y fuentes. Si no tiene fuentes, propón 2 parejas de Google Fonts (una serif con cursiva para títulos + una sans para texto). Detalle y cómo derivar colores: `references/marca.md`.
 3. **Formatos:** vertical 9:16 (Reels, TikTok, Shorts), 4:5 y 1:1 (feed), horizontal 16:9 (YouTube, pantallas).
 4. **Persona a cámara:** ¿hay grabación? Si sí, que la pase (MP4/MOV). Ver `references/camara.md`.
-5. **Contenido:** mensajes (uno por escena), cifras reales (no inventes: si faltan, pregunta), capturas de pantalla del producto o sitio (de celular, ~1170 px de ancho), portadas o fotos, imagen final (diploma, premio, boleto…).
-6. **Música:** una de `musica/` (ver `musica/LICENCIAS.md`, requiere crédito al publicar) o una propia con derechos, o solo efectos.
+5. **Tutoriales:** si es un tutorial de una app o sitio, pide capturas de pantalla de cada paso (de toda la pantalla, en orden) y usa escenas `captura` en horizontal.
+6. **Contenido:** mensajes (uno por escena), cifras reales (no inventes: si faltan, pregunta), capturas de pantalla del producto o sitio (de celular, ~1170 px de ancho), portadas o fotos, imagen final (diploma, premio, boleto…).
+7. **Música:** una de `musica/` (ver `musica/LICENCIAS.md`, requiere crédito al publicar) o una propia con derechos, o solo efectos.
 
 ## 2 — Guion (lo aprueba antes de renderizar)
 1. Elige escenas y orden con `references/escenas.md` (qué hace cada una, qué pide y estructuras recomendadas). Respeta el ritmo: gancho al inicio, un golpe a mitad, cierre al final, 20–40 s.

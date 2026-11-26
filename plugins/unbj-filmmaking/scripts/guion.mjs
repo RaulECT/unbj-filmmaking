@@ -42,10 +42,16 @@ const DESC = {
   "golpe-circulo": (e) => ({ texto: `${e.linea1} ${e.linea2}`, ve: "Círculo de tinta a cuadro completo", anim: "Texto sube; la segunda línea se tacha", tr: "El círculo se abre y se cierra sobre la tarjeta siguiente", sfx: "whoosh, click, whoosh" }),
   descargas: (e) => ({ ve: `Tarjetas «${e.aviso?.titulo ?? ""}» y «${e.archivo.titulo}»`, anim: `Ícono de wifi se apaga y se tacha; barra de descarga llega a 100% → «${e.listo ?? "Descargada"}»`, tr: "Cámara se inclina sobre la mesa", sfx: "whoosh, click, ding" }),
   diploma: (e) => ({ ve: `Confeti y ${e.imagen}`, anim: "El diploma se levanta desde el plano; insignia con check", tr: "Empuje lento de cámara", sfx: "whoosh, boom, whoosh, pop" }),
+  captura: (e) => ({
+    ve: `Ventana con ${path.basename(e.imagen)}${e.video ? " (con video)" : ""}${e.chat ? ` y chat: ${e.chat.mensajes.map((m) => `«${m.texto.split("\n")[0]}»`).join(" → ")}` : ""}`,
+    anim: [e.foco ? "acercamiento y resaltado del foco" : "vista completa", e.clic ? "cursor y clic" : "", e.escribir ? `se teclea «${e.escribir.texto}»` : "", e.ocultar?.length ? `${e.ocultar.length} zona(s) ocultas` : ""].filter(Boolean).join("; "),
+    tr: "Fundido entre capturas; la cámara viaja de un foco al siguiente",
+    sfx: [e.clic ? "click" : "", e.escribir ? "teclas" : "", e.chat ? "pops" : ""].filter(Boolean).join(", ") || "whoosh suave",
+  }),
   persona: (e) => ({ ve: `Persona a cámara (camara.mp4, ${e.desde}–${e.hasta} s)`, anim: "Subtítulos palabra por palabra" + (e.resaltar?.length ? `; resaltadas: ${e.resaltar.join(", ")}` : ""), tr: "Cortina que abre y cierra", sfx: "whoosh" }),
   cierre: (e) => ({
     texto: `${e.etiqueta ?? ""} · ${cur(e.titulo)}`,
-    ve: { navegador: "Fondo de acento; el celular abre el sitio", maqueta: "Fondo oscuro; maqueta isométrica de portadas", editorial: "Papel con cintas de texto y botón" }[e.variante ?? "navegador"],
+    ve: { marca: "Fondo de acento; logo y nombre de la marca", navegador: "Fondo de acento; el celular abre el sitio", maqueta: "Fondo oscuro; maqueta isométrica de portadas", editorial: "Papel con cintas de texto y botón" }[e.variante ?? "navegador"],
     anim: "Se escribe la dirección, aparece el logo y la firma",
     tr: "Círculo/cortina que tapa la escena anterior",
     sfx: "whoosh, pops, clicks de teclado, ding, pop",
@@ -55,9 +61,9 @@ const DESC = {
 let n = 0;
 const filas = esc.map((e, i) => {
   const d = DESC[e.tipo](e);
-  const numerada = ["catalogo", "avance", "reproductor", "ruta", "descargas", "diploma"].includes(e.tipo);
-  if (numerada && !(e.tipo === "ruta" && esc[i - 1]?.tipo === "reproductor")) n++;
-  const texto = d.texto ?? `${numerada ? String(n).padStart(2, "0") + " · " : ""}${e.etiqueta ?? ""} — ${cur(e.titulo)}`;
+  const numerada = ["catalogo", "avance", "reproductor", "ruta", "descargas", "diploma", "captura"].includes(e.tipo);
+  if (numerada && !(e.tipo === "ruta" && esc[i - 1]?.tipo === "reproductor") && e.numero !== "igual") n++;
+  const texto = d.texto ?? (e.tipo === "cierre" && e.variante === "marca" ? cur(e.titulo ?? "") : null) ?? `${numerada ? String(n).padStart(2, "0") + " · " : ""}${e.etiqueta ?? ""} — ${cur(e.titulo)}${e.texto ? ` · ${e.texto.replace(/\*/g, "")}` : ""}`;
   return `| ${i + 1} | ${seg(ts[i].desde)}–${seg(ts[i].hasta)} | ${e.tipo} | ${texto} | ${d.ve} | ${d.anim} | ${d.tr} | ${d.sfx} |`;
 });
 const pub = v.publicacion ?? {};

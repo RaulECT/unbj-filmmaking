@@ -10,7 +10,7 @@ if (!FORMATOS[formato]) fallo(`Formato desconocido: ${formato}`);
 const v = leer(path.join(dir, "video.json"));
 const ts = tiempos(v.escenas);
 // en qué parte de cada escena se ve completa (fracción de su duración)
-const PUNTO = { gancho: 0.92, "golpe-barrido": 0.6, "golpe-circulo": 0.55, cierre: 0.85, persona: 0.5 };
+const PUNTO = { gancho: 0.92, "golpe-barrido": 0.6, "golpe-circulo": 0.55, cierre: 0.85, persona: 0.5, captura: 0.8 };
 const out = path.join(dir, "storyboard");
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out);

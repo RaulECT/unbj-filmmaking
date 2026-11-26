@@ -111,7 +111,7 @@ export const BigNums: React.FC = () => {
 };
 
 // ---------- títulos de escena (palabra por palabra; *palabra* = cursiva en color de acento) ----------
-export const Caption: React.FC<Cap> = ({ from, to, eyebrow, title, align = "center" }) => {
+export const Caption: React.FC<Cap> = ({ from, to, eyebrow, title, texto, align = "center" }) => {
   const t = useT();
   const f = useFormato();
   if (t < from - 0.05 || t > to + 0.4) return null;
@@ -138,6 +138,11 @@ export const Caption: React.FC<Cap> = ({ from, to, eyebrow, title, align = "cent
           );
         })}
       </div>
+      {texto && (
+        <div style={{ marginTop: 22, fontFamily: BODY, fontSize: 34, lineHeight: 1.4, color: C.muted, opacity: ramp(t, from + 0.5, 0.5), transform: `translateY(${(1 - ramp(t, from + 0.5, 0.5)) * 20}px)` }}>
+          {texto.split(/(\*[^*]+\*)/).map((w, i) => (w.startsWith("*") ? <b key={i} style={{ color: C.text, fontWeight: 700 }}>{w.replace(/\*/g, "")}</b> : w))}
+        </div>
+      )}
     </div>
   );
 };

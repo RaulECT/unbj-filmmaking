@@ -45,7 +45,7 @@ const esc = video.escenas ?? [];
 if (!esc.length) errores.push("video.json no tiene escenas.");
 esc.forEach((e, i) => {
   const d = `Escena ${i + 1} (${e.tipo})`;
-  if (!(e.tipo in DUR) && e.tipo !== "persona") return errores.push(`${d}: tipo desconocido.`);
+  if (!(e.tipo in DUR) && e.tipo !== "persona" && e.tipo !== "captura") return errores.push(`${d}: tipo desconocido.`);
   if (e.titulo !== undefined && e.tipo !== "cierre") largo(e.titulo, 30, `${d} → título`);
   if (e.etiqueta !== undefined) largo(e.etiqueta, 26, `${d} → etiqueta`);
   if (e.titulo && !/\*[^*]+\*/.test(e.titulo)) avisos.push(`${d}: el título no tiene palabra en *cursiva*; el estilo siempre resalta una.`);
@@ -90,6 +90,19 @@ esc.forEach((e, i) => {
       (e.portadas ?? []).forEach((p, j) => existe(p, `${d} → portada ${j + 1}`));
       if (i !== esc.length - 1) avisos.push(`${d}: el cierre suele ir al final.`);
       break;
+    case "captura": {
+      existe(e.imagen, d);
+      const f = path.join(pub, e.imagen ?? "");
+      const m = fs.existsSync(f) ? medidas(f) : null;
+      if (m) {
+        const dentro = (r, que) => r && (r.x < 0 || r.y < 0 || r.x + (r.w ?? 0) > m.w || r.y + (r.h ?? 0) > m.h) && errores.push(`${d}: ${que} se sale de la imagen (${m.w}×${m.h}).`);
+        dentro(e.recorte, "el recorte");
+        dentro(e.foco, "el foco");
+        dentro(e.clic, "el clic");
+      }
+      if (e.video) existe(e.video.archivo, `${d} → video`);
+      break;
+    }
     case "persona":
       if (!fs.existsSync(path.join(pub, "camara.mp4"))) errores.push(`${d}: falta public/camara.mp4 (se prepara con camara.py).`);
       if (!(e.hasta > e.desde)) errores.push(`${d}: "hasta" debe ser mayor que "desde".`);

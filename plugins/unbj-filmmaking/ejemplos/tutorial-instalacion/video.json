@@ -1,0 +1,786 @@
+{
+  "titulo": "Tutorial — Instala UNBJ Filmmaking",
+  "formatos": [
+    "horizontal"
+  ],
+  "musica": "Carefree.mp3",
+  "escenas": [
+    {
+      "tipo": "gancho",
+      "pregunta": [
+        "¿QUIERES",
+        "hacer",
+        "videos?"
+      ],
+      "prefijo": "Instálalo en",
+      "palabras": [
+        "3 PASOS",
+        "5 MINUTOS"
+      ],
+      "remate": "FÁCIL",
+      "subremate": "con Claude."
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.09.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU CARPETA",
+      "titulo": "Abre la pestaña *Code*",
+      "texto": "Abre la app de Claude y entra a *Code*, el ícono </> de arriba.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 640,
+        "y": 60,
+        "w": 200,
+        "h": 90
+      },
+      "clic": {
+        "x": 762,
+        "y": 102
+      }
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.49.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU CARPETA",
+      "titulo": "Crea un *entorno*",
+      "texto": "Abajo, abre el selector de entorno y elige *New environment*.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1005,
+          "y": 1120,
+          "w": 600,
+          "h": 160,
+          "modo": "desenfoque"
+        }
+      ],
+      "foco": {
+        "x": 979,
+        "y": 972,
+        "w": 641,
+        "h": 612
+      },
+      "clic": {
+        "x": 1181,
+        "y": 1541
+      },
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.07.05.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU CARPETA",
+      "titulo": "Agrega una *carpeta*",
+      "texto": "En *Folders* toca *Add* y luego *Choose…*",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1166,
+          "y": 945,
+          "w": 760,
+          "h": 450,
+          "modo": "desenfoque"
+        }
+      ],
+      "foco": {
+        "x": 922,
+        "y": 446,
+        "w": 1036,
+        "h": 1037
+      },
+      "clic": {
+        "x": 1310,
+        "y": 1441
+      },
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.07.43.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU CARPETA",
+      "titulo": "Elige dónde *guardar*",
+      "texto": "Crea con *Nueva carpeta* o elige una para tus videos y toca *Abrir*.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 564,
+        "y": 415,
+        "w": 1752,
+        "h": 888
+      },
+      "clic": {
+        "x": 2193,
+        "y": 1244
+      },
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.07.48.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU CARPETA",
+      "titulo": "Ponle *nombre*",
+      "texto": "Escribe un nombre y toca *Create environment*.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 922,
+        "y": 446,
+        "w": 1036,
+        "h": 828
+      },
+      "clic": {
+        "x": 1780,
+        "y": 1214
+      },
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.09.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "INSTALA EL PLUGIN",
+      "titulo": "Abre *Plugins*",
+      "texto": "En la barra lateral, toca *Plugins*.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 259,
+        "y": 158,
+        "w": 540,
+        "h": 332
+      },
+      "clic": {
+        "x": 374,
+        "y": 393
+      }
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.12.47.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "INSTALA EL PLUGIN",
+      "titulo": "Agrega el *marketplace*",
+      "texto": "Toca *Add* y elige *Add marketplace*.",
+      "dur": 5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 881,
+          "y": 432,
+          "w": 1125,
+          "h": 565,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 259,
+          "y": 547,
+          "w": 170,
+          "h": 710,
+          "modo": "desenfoque"
+        }
+      ],
+      "foco": {
+        "x": 2009,
+        "y": 274,
+        "w": 413,
+        "h": 345
+      },
+      "clic": {
+        "x": 2203,
+        "y": 583
+      },
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.13.10.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "INSTALA EL PLUGIN",
+      "titulo": "Escribe el *repositorio*",
+      "texto": "Escribe *RaulECT/unbj-filmmaking* y elige *Use*.",
+      "dur": 6,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 881,
+          "y": 420,
+          "w": 1540,
+          "h": 165,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 259,
+          "y": 547,
+          "w": 170,
+          "h": 710,
+          "modo": "desenfoque"
+        }
+      ],
+      "foco": {
+        "x": 922,
+        "y": 590,
+        "w": 1036,
+        "h": 548
+      },
+      "clic": {
+        "x": 1250,
+        "y": 1099,
+        "at": 3.6
+      },
+      "numero": "igual",
+      "escribir": {
+        "x": 972,
+        "y": 916,
+        "texto": "RaulECT/unbj-filmmaking",
+        "at": 1.6,
+        "dur": 1.2,
+        "tam": 27,
+        "fondo": {
+          "x": 958,
+          "y": 905,
+          "w": 880,
+          "h": 50,
+          "color": "#2A2A2A"
+        }
+      }
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.15.02.png",
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "w": 2060,
+        "h": 1376
+      },
+      "etiqueta": "INSTALA EL PLUGIN",
+      "titulo": "Instala el *plugin*",
+      "texto": "Toca *Add to this computer*. Luego cierra y vuelve a abrir la app.",
+      "dur": 5,
+      "ocultar": [],
+      "foco": {
+        "x": 1100,
+        "y": 290,
+        "w": 900,
+        "h": 100
+      },
+      "clic": {
+        "x": 1788,
+        "y": 338
+      },
+      "numero": "igual",
+      "zoom": 1.5
+    },
+    {
+      "tipo": "golpe-barrido",
+      "linea1": "¿Y AHORA?",
+      "linea2": "a crear."
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.09.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU PRIMER VIDEO",
+      "titulo": "Prepara *todo*",
+      "texto": "En *Code*, escribe: *Prepara todo para hacer videos*.",
+      "dur": 6,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 1150,
+        "y": 880,
+        "w": 1250,
+        "h": 600
+      },
+      "chat": {
+        "zona": {
+          "x": 1150,
+          "y": 700,
+          "w": 1250,
+          "h": 760
+        },
+        "tam": 40,
+        "inicio": 0.6,
+        "paso": 1.6,
+        "mensajes": [
+          {
+            "de": "tu",
+            "texto": "Prepara todo para hacer videos"
+          },
+          {
+            "de": "claude",
+            "texto": "Revisé tu computadora: Node.js y ffmpeg ya están\ny el motor de video quedó instalado.\n✅ Listo para crear videos."
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.09.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU PRIMER VIDEO",
+      "titulo": "Pide tu *video*",
+      "texto": "Pídelo con tus palabras y responde sus *preguntas*.",
+      "dur": 6,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "foco": {
+        "x": 1150,
+        "y": 880,
+        "w": 1250,
+        "h": 600
+      },
+      "numero": "igual",
+      "chat": {
+        "zona": {
+          "x": 1150,
+          "y": 700,
+          "w": 1250,
+          "h": 760
+        },
+        "tam": 40,
+        "inicio": 0.4,
+        "paso": 1.6,
+        "mensajes": [
+          {
+            "de": "tu",
+            "texto": "Hazme un reel para anunciar el curso de Liderazgo"
+          },
+          {
+            "de": "claude",
+            "texto": "¡Va! Antes, unas preguntas:\n1. ¿En qué formatos lo necesitas?\n2. ¿Tienes capturas de la plataforma?\n3. ¿Lo quieres con música?"
+          }
+        ]
+      }
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/storyboard.jpg",
+      "recorte": {
+        "x": 0,
+        "y": 0,
+        "w": 3240,
+        "h": 1920
+      },
+      "etiqueta": "TU PRIMER VIDEO",
+      "titulo": "Aprueba el *guion*",
+      "texto": "Revisa el guion y el *storyboard*; pide los cambios que quieras.",
+      "dur": 5,
+      "ocultar": [],
+      "numero": "igual"
+    },
+    {
+      "tipo": "captura",
+      "imagen": "capturas/9.06.09.png",
+      "recorte": {
+        "x": 242,
+        "y": 60,
+        "w": 2396,
+        "h": 1600
+      },
+      "etiqueta": "TU PRIMER VIDEO",
+      "titulo": "Listo para *publicar*",
+      "texto": "Tu video queda en la carpeta *Videos UNBJ Filmmaking*.",
+      "dur": 6.5,
+      "ocultar": [
+        {
+          "x": 259,
+          "y": 547,
+          "w": 550,
+          "h": 710,
+          "modo": "desenfoque"
+        },
+        {
+          "x": 2150,
+          "y": 85,
+          "w": 500,
+          "h": 130,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 2540,
+          "y": 1570,
+          "w": 110,
+          "h": 100,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 1400,
+          "y": 590,
+          "w": 660,
+          "h": 410,
+          "modo": "tapar",
+          "color": "#191919"
+        },
+        {
+          "x": 893,
+          "y": 202,
+          "w": 1605,
+          "h": 1290,
+          "modo": "tapar",
+          "color": "#191919"
+        }
+      ],
+      "numero": "igual",
+      "video": {
+        "archivo": "capturas/reel-final.mp4",
+        "x": 1385,
+        "y": 250,
+        "w": 640,
+        "h": 1138,
+        "desde": 2.6,
+        "radio": 28
+      },
+      "foco": {
+        "x": 1340,
+        "y": 240,
+        "w": 730,
+        "h": 1160
+      }
+    },
+    {
+      "tipo": "cierre",
+      "variante": "marca",
+      "titulo": "UNBJ *Filmmaking*"
+    }
+  ],
+  "publicacion": {
+    "texto": "Instala UNBJ Filmmaking en la app de escritorio de Claude en 3 pasos y crea tu primer video con el estilo del reel de Campus UNBJ.",
+    "hashtags": [
+      "#UNBJ",
+      "#UNBJFilmmaking",
+      "#Claude"
+    ],
+    "portada": 2.6
+  }
+}

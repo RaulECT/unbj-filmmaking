@@ -7,6 +7,7 @@ import { avance } from "./avance";
 import { reproductor, ruta } from "./lecciones";
 import { descargas, diploma, cierre } from "./final";
 import { persona } from "./persona";
+import { captura } from "./captura";
 
 export const ESCENAS: Record<string, DefEscena> = {
   gancho,
@@ -20,5 +21,6 @@ export const ESCENAS: Record<string, DefEscena> = {
   descargas,
   diploma,
   persona,
+  captura,
   cierre,
 };

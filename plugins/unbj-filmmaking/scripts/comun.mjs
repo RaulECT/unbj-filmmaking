@@ -58,7 +58,7 @@ export const DUR = {
   gancho: 2.7, plataforma: 4.9, catalogo: 4.4, "golpe-barrido": 0.75, avance: 3.8, reproductor: 2.85, ruta: 2.6,
   "golpe-circulo": 0.8, descargas: 3.0, diploma: 3.4, cierre: 3.2,
 };
-export const durEscena = (e) => (e.tipo === "persona" ? Math.max(0.5, e.hasta - e.desde) : DUR[e.tipo]);
+export const durEscena = (e) => (e.tipo === "persona" ? Math.max(0.5, e.hasta - e.desde) : e.tipo === "captura" ? e.dur ?? 4.5 : DUR[e.tipo]);
 export function tiempos(escenas) {
   let o = 0;
   return escenas.map((e) => {

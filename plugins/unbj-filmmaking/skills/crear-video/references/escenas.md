@@ -29,14 +29,18 @@
 | `descargas` | 3,0 s | № | Tarjetas «sin conexión» y descarga que llega a 100% | `etiqueta`, `titulo`, `pantalla`, `aviso` {titulo, texto}, `archivo` {portada, titulo, detalle}, `listo` |
 | `diploma` | 3,4 s | № | Confeti; una imagen horizontal (diploma, boleto, premio) se levanta con insignia | `etiqueta`, `titulo`, `imagen`, `proporcion`? (alto/ancho), `pantalla`? |
 | `persona` | la del tramo | | Persona a cámara a cuadro completo con subtítulos palabra por palabra | `desde`, `hasta` (s en camara.mp4), `resaltar` [palabras], `etiqueta`?, `subtitulos` (true) |
-| `cierre` | 3,2 s | | `variante`: **navegador** (fondo de acento, el celular abre el sitio), **maqueta** (fondo oscuro, portadas en maqueta isométrica), **editorial** (papel, tres líneas grandes, cintas y botón) | `variante`, `etiqueta`, `titulo` ("Inscríbete *gratis*"), `sitio`?, `portadas` (4 navegador / 6 maqueta), `pantalla` (navegador), `lineas` [3] y `cinta` [palabras] (editorial) |
+| `captura` | `dur` (4,5 s) | № (usa `"numero": "igual"` para que varias capturas sean el mismo paso) | Captura de computadora en una ventana: acercamiento al `foco` con resaltado, cursor que hace clic, texto que se teclea, zonas ocultas, chat recreado o video dentro. Las capturas seguidas comparten ventana (fundido y la cámara viaja de un foco al otro) | `imagen`, `recorte` {x,y,w,h} (la ventana de la app), `foco` {x,y,w,h}, `zoom`?, `clic` {x,y,at}, `escribir` {x,y,texto,at,tam,fondo}, `ocultar` [{x,y,w,h,modo:"desenfoque"/"tapar",color}], `chat` {zona, tam, mensajes:[{de:"tu"/"claude", texto}]}, `video` {archivo,x,y,w,h,desde}, `etiqueta`, `titulo`, `texto` (instrucción corta), `dur` |
+| `cierre` | 3,2 s | | `variante`: **marca** (solo logo y nombre, sin llamado), **navegador** (fondo de acento, el celular abre el sitio), **maqueta** (fondo oscuro, portadas en maqueta isométrica), **editorial** (papel, tres líneas grandes, cintas y botón) | `variante`, `etiqueta`, `titulo` ("Inscríbete *gratis*"), `sitio`?, `portadas` (4 navegador / 6 maqueta), `pantalla` (navegador), `lineas` [3] y `cinta` [palabras] (editorial) |
 
 **Coordenadas de `toque`:** en puntos de diseño de la captura a 390 de ancho (x de 0 a 390; y desde arriba de la captura). Calcula: `x = px * 390 / ancho_px`, `y = py * 390 / ancho_px`.
 
 ## Estructuras recomendadas
+- **Tutorial (horizontal, 1–1,5 min):** gancho → capturas del paso 01 → capturas del paso 02 → golpe-barrido → capturas del paso 03 → cierre marca. 4,5–6 s por captura. Ejemplo real: el tutorial de instalación (`ejemplos/tutorial-instalacion/video.json`).
 - **Producto o plataforma (como el original, ~32 s):** gancho → plataforma → catalogo → golpe-barrido → avance → reproductor → ruta → golpe-circulo → descargas → diploma → cierre.
 - **Anuncio corto (~15 s):** gancho → catalogo (o avance) → diploma → cierre.
 - **Evento:** gancho → plataforma (portadas = talleres/ponentes) → avance (fecha, cupo, horas) → golpe-circulo → cierre editorial.
 - **Con persona (~30–45 s):** gancho → persona → catalogo → persona → avance → cierre.
 
 Reglas: gancho siempre primero; cierre siempre último; un golpe cada ~10 s; no repetir la misma escena seguida; las escenas con celular (`plataforma`, `catalogo`, `avance`, `reproductor`, `descargas`) necesitan capturas; sin capturas, arma el video con `gancho`, golpes, `persona`, `diploma` (con imagen) y `cierre` editorial o maqueta.
+
+**Capturas (`captura`):** las coordenadas van en píxeles de la imagen original. Para medirlas, abre la captura con Read: la imagen que ves puede estar reducida; multiplica por (ancho real ÷ ancho mostrado). Siempre oculta datos personales (nombres de sesiones, correos, avisos del sistema, miniaturas) con `ocultar` y revisa el storyboard antes de renderizar.

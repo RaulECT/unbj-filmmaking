@@ -7,6 +7,7 @@ import { armar, LineaCtx } from "./motor/linea";
 import { Escenario, useFormato } from "./motor/formato";
 import { PaperBg, BigNums, World, Phone, Caption, BadgeV, Sounds } from "./motor/piezas";
 import { ESCENAS } from "./escenas";
+import { Ventana } from "./escenas/captura";
 
 export const LINEA = armar((VIDEO as any).escenas, ESCENAS);
 
@@ -32,6 +33,7 @@ const Capas: React.FC = () => {
         {f !== "horizontal" && L.caps.map((c) => <Caption key={c.from} {...c} />)}
         {L.badges.map((b) => <BadgeV key={b.from} {...b} />)}
       </Escenario>
+      <Ventana />
       {f === "horizontal" && L.caps.map((c) => <Caption key={c.from} {...c} />)}
       {L.items.map((it) => {
         const A = ESCENAS[it.e.tipo].Arriba;
