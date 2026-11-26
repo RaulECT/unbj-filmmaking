@@ -381,10 +381,11 @@ const CierreMarca: React.FC<{ o: number; e: any }> = ({ o: f, e }) => {
       <Centro>
         <AbsoluteFill style={{ alignItems: "center" }}>
           <Img src={img(MARCA.logoBlanco)} style={{ position: "absolute", top: 560, height: 260, opacity: Math.min(1, lp * 1.5), transform: `scale(${0.6 + 0.4 * lp})` }} />
-          <div style={{ position: "absolute", top: 900, left: 40, right: 40, textAlign: "center" }}>
+          <div style={{ position: "absolute", top: 900, left: 40, right: 40, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <Headline t={t} at={f + 0.6} color="#fff" em={C.text} size={130} texto={e.titulo ?? MARCA.nombre} />
+            {/* la línea va debajo del nombre, aunque ocupe dos renglones */}
+            <div style={{ marginTop: 36, width: 320, height: 6, borderRadius: 3, background: "#fff", opacity: 0.85, transform: `scaleX(${lineP})` }} />
           </div>
-          <div style={{ position: "absolute", top: 1110, left: 540 - 160, width: 320, height: 6, borderRadius: 3, background: "#fff", opacity: 0.85, transform: `scaleX(${lineP})` }} />
         </AbsoluteFill>
       </Centro>
     </AbsoluteFill>

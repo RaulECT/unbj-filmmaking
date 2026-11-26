@@ -35,13 +35,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -54,14 +47,6 @@
           "y": 1570,
           "w": 110,
           "h": 100,
-          "modo": "tapar",
-          "color": "#191919"
-        },
-        {
-          "x": 1400,
-          "y": 590,
-          "w": 660,
-          "h": 410,
           "modo": "tapar",
           "color": "#191919"
         }
@@ -92,13 +77,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -113,21 +91,6 @@
           "h": 100,
           "modo": "tapar",
           "color": "#191919"
-        },
-        {
-          "x": 1400,
-          "y": 590,
-          "w": 660,
-          "h": 410,
-          "modo": "tapar",
-          "color": "#191919"
-        },
-        {
-          "x": 1005,
-          "y": 1120,
-          "w": 600,
-          "h": 160,
-          "modo": "desenfoque"
         }
       ],
       "foco": {
@@ -157,13 +120,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -178,13 +134,6 @@
           "h": 100,
           "modo": "tapar",
           "color": "#191919"
-        },
-        {
-          "x": 1166,
-          "y": 945,
-          "w": 760,
-          "h": 450,
-          "modo": "desenfoque"
         }
       ],
       "foco": {
@@ -213,13 +162,6 @@
       "texto": "Crea con *Nueva carpeta* o elige una para tus videos y toca *Abrir*.",
       "dur": 5,
       "ocultar": [
-        {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
         {
           "x": 2150,
           "y": 85,
@@ -264,13 +206,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -314,13 +249,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -333,14 +261,6 @@
           "y": 1570,
           "w": 110,
           "h": 100,
-          "modo": "tapar",
-          "color": "#191919"
-        },
-        {
-          "x": 1400,
-          "y": 590,
-          "w": 660,
-          "h": 410,
           "modo": "tapar",
           "color": "#191919"
         }
@@ -371,13 +291,6 @@
       "dur": 5,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -392,20 +305,6 @@
           "h": 100,
           "modo": "tapar",
           "color": "#191919"
-        },
-        {
-          "x": 881,
-          "y": 432,
-          "w": 1125,
-          "h": 565,
-          "modo": "desenfoque"
-        },
-        {
-          "x": 259,
-          "y": 547,
-          "w": 170,
-          "h": 710,
-          "modo": "desenfoque"
         }
       ],
       "foco": {
@@ -435,13 +334,6 @@
       "dur": 6,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -456,20 +348,6 @@
           "h": 100,
           "modo": "tapar",
           "color": "#191919"
-        },
-        {
-          "x": 881,
-          "y": 420,
-          "w": 1540,
-          "h": 165,
-          "modo": "desenfoque"
-        },
-        {
-          "x": 259,
-          "y": 547,
-          "w": 170,
-          "h": 710,
-          "modo": "desenfoque"
         }
       ],
       "foco": {
@@ -547,13 +425,6 @@
       "dur": 6,
       "ocultar": [
         {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
-        {
           "x": 2150,
           "y": 85,
           "w": 500,
@@ -620,13 +491,6 @@
       "texto": "Pídelo con tus palabras y responde sus *preguntas*.",
       "dur": 6,
       "ocultar": [
-        {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
         {
           "x": 2150,
           "y": 85,
@@ -711,13 +575,6 @@
       "texto": "Tu video queda en la carpeta *Videos UNBJ Filmmaking*.",
       "dur": 6.5,
       "ocultar": [
-        {
-          "x": 259,
-          "y": 547,
-          "w": 550,
-          "h": 710,
-          "modo": "desenfoque"
-        },
         {
           "x": 2150,
           "y": 85,
