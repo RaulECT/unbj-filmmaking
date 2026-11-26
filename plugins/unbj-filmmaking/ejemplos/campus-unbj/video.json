@@ -1,0 +1,58 @@
+{
+  "titulo": "Reel de presentación — Campus UNBJ",
+  "formatos": ["vertical"],
+  "musica": null,
+  "escenas": [
+    { "tipo": "gancho", "pregunta": ["¿QUIERES", "servir", "mejor?"], "prefijo": "Aprende a",
+      "palabras": ["LIDERAR", "ENSEÑAR", "COMUNICAR", "SERVIR"], "remate": "GRATIS", "subremate": "y a tu ritmo." },
+    { "tipo": "plataforma", "etiqueta": "CAMPUS UNBJ", "titulo": "Cursos para cada *ministerio*", "insignia": "Todas gratuitas",
+      "pantalla": { "archivo": "pantallas/w5hR0F.png", "alto": 3143 },
+      "portadas": [
+        { "archivo": "portadas/wtmgw.png", "etiqueta": "Liderazgo" },
+        { "archivo": "portadas/S4gDfj.png", "etiqueta": "Estudio bíblico" },
+        { "archivo": "portadas/FAVfa.png", "etiqueta": "Música" },
+        { "archivo": "portadas/eWGT6.png", "etiqueta": "Servicio" },
+        { "archivo": "portadas/ge01d.png", "etiqueta": "Administración" },
+        { "archivo": "portadas/bi2pX.png", "etiqueta": "Difusión" }
+      ] },
+    { "tipo": "catalogo", "etiqueta": "CATÁLOGO", "titulo": "Encuentra *tu* curso",
+      "pantalla": { "archivo": "pantallas/G9ir6.png", "alto": 2065 },
+      "hoja": { "archivo": "pantallas/beHiS.png", "alto": 844, "arriba": 236 },
+      "toque": { "x": 100, "y": 326 },
+      "categorias": ["Difusión", "Liderazgo", "Estudio bíblico", "Música", "Servicio", "Administración"], "seleccion": 0 },
+    { "tipo": "golpe-barrido", "linea1": "¿LO DEJASTE", "linea2": "a medias?" },
+    { "tipo": "avance", "etiqueta": "TU AVANCE", "titulo": "Retoma donde te *quedaste*",
+      "pantalla": { "archivo": "pantallas/DpKfi.png", "alto": 2938 },
+      "toque": { "x": 268, "y": 802 },
+      "cifras": [
+        { "tipo": "numero", "valor": 13, "texto": "lecciones" },
+        { "tipo": "duracion", "minutos": 199, "texto": "de contenido" },
+        { "tipo": "porcentaje", "valor": 38, "texto": "completado" }
+      ] },
+    { "tipo": "reproductor", "etiqueta": "LECCIONES EN VIDEO", "titulo": "Aprende a tu *ritmo*",
+      "pantalla": { "archivo": "pantallas/pAvAb.png", "alto": 844 },
+      "portada": "portadas/bi2pX.png", "chip": "LECCIÓN 2.1 · 22 MIN", "desde": "4:12", "total": "22:00" },
+    { "tipo": "ruta", "etiqueta": "TU RUTA", "titulo": "Avanza lección a *lección*", "iniciales": "JD", "aquiVas": "· aquí vas",
+      "modulos": [
+        { "texto": "Módulo 1 · 5 lecciones", "estado": "hecho" },
+        { "texto": "Módulo 2 · 3 lecciones", "estado": "actual" },
+        { "texto": "Módulo 3 · 5 lecciones", "estado": "siguiente" }
+      ] },
+    { "tipo": "golpe-circulo", "linea1": "¿SIN", "linea2": "internet?" },
+    { "tipo": "descargas", "etiqueta": "MIS DESCARGAS", "titulo": "Estudia donde *sea*",
+      "pantalla": { "archivo": "pantallas/v3wCd5.png", "alto": 2495 },
+      "aviso": { "titulo": "Sin conexión", "texto": "Tus lecciones siguen aquí" },
+      "archivo": { "portada": "portadas/bi2pX.png", "titulo": "1.3 Del brief al concepto", "detalle": "19 min · 61 MB" },
+      "listo": "Descargada" },
+    { "tipo": "diploma", "etiqueta": "CURSO COMPLETADO", "titulo": "Recibe tu *diploma*",
+      "pantalla": { "archivo": "pantallas/p8vDhp.png", "alto": 1289 }, "imagen": "diploma.png" },
+    { "tipo": "cierre", "variante": "navegador", "etiqueta": "CAMPUS UNBJ", "titulo": "Inscríbete *gratis*",
+      "pantalla": { "archivo": "pantallas/w5hR0F.png", "alto": 3143 },
+      "portadas": ["portadas/wtmgw.png", "portadas/FAVfa.png", "portadas/eWGT6.png", "portadas/S4gDfj.png"] }
+  ],
+  "publicacion": {
+    "texto": "Campus UNBJ ya está aquí: cursos gratuitos para cada ministerio, a tu ritmo y hasta sin internet. Al terminar, recibes tu diploma. Inscríbete en campus.unbj.app",
+    "hashtags": ["#CampusUNBJ", "#UNBJ", "#Ministerio", "#Liderazgo"],
+    "portada": 3.2
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "nombre": "Campus UNBJ",
+  "logo": "logo-unbj.png",
+  "logoBlanco": "logo-unbj-white.png",
+  "sitio": "campus.unbj.app",
+  "firma": { "izquierda": "UNBJ 2026", "derecha": "Un Latir por el Reino" },
+  "fuentes": { "titulos": "Playfair Display", "texto": "Inter" },
+  "colores": {
+    "fondo": "#E8E6DF",
+    "papel": "#F3F1EC",
+    "crema": "#E9E7E1",
+    "tarjeta": "#FFFFFF",
+    "linea": "#C9C6BD",
+    "texto": "#1C1C1C",
+    "tenue": "#6D6A64",
+    "acento": "#D85446",
+    "acentoOscuro": "#A93E35",
+    "secundario": "#2F6B54",
+    "aviso": "#A66A20"
+  },
+  "derivados": {
+    "losaSur": "#D3CFC4", "losaOeste": "#DCD8CE",
+    "fichaSur": "#CFCBC0", "fichaOeste": "#E0DCD3",
+    "secundarioSur": "#24533F", "secundarioOeste": "#2A5F4A",
+    "acentoOeste": "#C04B3E", "vacioOeste": "#DAD7CF",
+    "sombraCierre": "rgba(60,10,5,.45)"
+  }
+}
